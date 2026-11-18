@@ -16,6 +16,7 @@
   --muted: #4A4A55;
   --blue: #0B5CC4;
   --yellow: #F5B800;
+  --orange: #F08C00;
   --green: #0B7A3E;
   --red: #D7261E;
   --slate: #3A3A40;
@@ -63,7 +64,7 @@ main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .label { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .timeline { display: flex; gap: 12px; }
 .ph { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.ph-1 { flex: 1; } .ph-2 { flex: 2; }
+.ph-1 { flex: 2; } .ph-3 { flex: 3; }
 .ph-time { margin: 0; font-size: 18px; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
 .ph-bar { font-family: var(--display); font-size: clamp(17px, 1.9vw, 22px); padding: 18px 18px; border-radius: 10px; line-height: 1.1; }
 .ph-txt { margin: 0; font-size: 17px; line-height: 1.4; color: var(--muted); }
@@ -196,11 +197,12 @@ button:focus-visible, input:focus-visible, .brand:focus-visible { outline: 3px s
       </div>
 
       <section class="block" aria-labelledby="h-rodada">
-        <h2 class="label" id="h-rodada">A rodada: 5 minutos para vender</h2>
+        <h2 class="label" id="h-rodada">A rodada: 10 minutos para vender</h2>
         <div class="timeline">
           <div class="ph ph-1"><p class="ph-time">0:00 – 1:00</p><div class="ph-bar" style="background:var(--blue);color:var(--paper)">Quebra-gelo</div><p class="ph-txt">Crie conexão e ganhe o direito de perguntar.</p></div>
-          <div class="ph ph-2"><p class="ph-time">1:00 – 3:00</p><div class="ph-bar" style="background:var(--yellow);color:var(--ink)">Identificar o QTP</div><p class="ph-txt">Descubra o que ele quer, o que tem e quanto pode pagar por mês.</p></div>
-          <div class="ph ph-2"><p class="ph-time">3:00 – 5:00</p><div class="ph-bar" style="background:var(--green);color:var(--paper)">Fechamento</div><p class="ph-txt">Proposta que caiba no QTP, agendamento ou venda, e pedido de indicação.</p></div>
+          <div class="ph ph-3"><p class="ph-time">1:00 – 4:00</p><div class="ph-bar" style="background:var(--yellow);color:var(--ink)">Identificar o QTP</div><p class="ph-txt">Descubra o que ele quer, o que tem e quanto pode pagar por mês.</p></div>
+          <div class="ph ph-3"><p class="ph-time">4:00 – 7:00</p><div class="ph-bar" style="background:var(--orange);color:var(--ink)">Negociação</div><p class="ph-txt">Apresente uma proposta que caiba no QTP e contorne as objeções.</p></div>
+          <div class="ph ph-3"><p class="ph-time">7:00 – 10:00</p><div class="ph-bar" style="background:var(--green);color:var(--paper)">Fechamento</div><p class="ph-txt">Feche a venda ou o agendamento e peça uma indicação.</p></div>
         </div>
       </section>
 
@@ -236,8 +238,8 @@ button:focus-visible, input:focus-visible, .brand:focus-visible { outline: 3px s
   <div class="view timer-view" id="view-timer" hidden>
   <section class="stage" id="stage" aria-live="polite">
     <div class="phase-step" id="step">Pronto para começar</div>
-    <h1 class="phase-name" id="phase">Rodada de 5 minutos</h1>
-    <div class="clock" id="clock" role="timer" aria-label="Tempo da fase">5:00</div>
+    <h1 class="phase-name" id="phase">Rodada de 10 minutos</h1>
+    <div class="clock" id="clock" role="timer" aria-label="Tempo da fase">10:00</div>
     <p class="tip" id="tip">Aperte Iniciar quando o vendedor fizer a primeira ligação.</p>
   </section>
 
@@ -267,10 +269,12 @@ button:focus-visible, input:focus-visible, .brand:focus-visible { outline: 3px s
   var BASE = [
     { id: 'gelo', name: 'Quebra-gelo', dur: 60, bg: '#0B5CC4', ink: '#F7F5F0', dark: true,
       tip: 'Crie conexão com o cliente e ganhe o direito de perguntar.' },
-    { id: 'qtp', name: 'Identificar o QTP', dur: 120, bg: '#F5B800', ink: '#141414', dark: false,
+    { id: 'qtp', name: 'Identificar o QTP', dur: 180, bg: '#F5B800', ink: '#141414', dark: false,
       tip: 'Descubra o que ele quer, o que já tem e quanto pode pagar por mês.' },
-    { id: 'fecha', name: 'Fechamento', dur: 120, bg: '#0B7A3E', ink: '#F7F5F0', dark: true,
-      tip: 'Proposta que caiba no QTP, agendamento ou venda, e pedido de indicação.' }
+    { id: 'nego', name: 'Negociação', dur: 180, bg: '#F08C00', ink: '#141414', dark: false,
+      tip: 'Apresente uma proposta que caiba no QTP e contorne as objeções.' },
+    { id: 'fecha', name: 'Fechamento', dur: 180, bg: '#0B7A3E', ink: '#F7F5F0', dark: true,
+      tip: 'Feche a venda ou o agendamento e peça uma indicação.' }
   ];
 
   var $ = function (id) { return document.getElementById(id); };
